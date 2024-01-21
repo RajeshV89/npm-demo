@@ -4,10 +4,6 @@ const {Customer,validateCustomer} = require('../module/customer');
 
 const router = express.Router();
 
-
-
-
-
 router.get('/',async (req,res)=>{
     const customer = await Customer.find();
     res.send(customer);
@@ -28,7 +24,4 @@ router.post('/',async (req,res)=>{
     res.send(customer);
 
 })
-
-
-
 module.exports= router;
