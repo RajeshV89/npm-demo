@@ -4,6 +4,7 @@ const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const courses = require('./routes/courses');
+const movies = require('./routes/movies');
 const hello = require('./routes/hello');
 const customer = require('./routes/customer');
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.static('public'));
 app.use(helmet());
 app.use('/api/courses',courses);
 app.use('/api/customer',customer);
+app.use('/api/movies',movies);
 app.use('/',hello);
 app.use(morgan('tiny'));
 
