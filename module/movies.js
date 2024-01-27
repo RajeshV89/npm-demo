@@ -43,3 +43,4 @@ function validateMovie(genre) {
 
 module.exports.Movie=Movie;
 module.exports.validateMovie=validateMovie;
+module.exports.moviesSchema = moviesSchema;
