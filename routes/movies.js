@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose')
 const {Movie,validateMovie} = require('../module/movies');
 const {Genre} = require('../module/courses');
 

@@ -30,9 +30,8 @@ function validateRental(rental){
         movieId: Joi.string().required()
     };
 
-    return Joi.validate(rental,schema)
-   
+    return Joi.object().validate(rental,schema)
 }
-module.exports.validateRental = validateRental;
+module.exports.validateRental =validateRental;
 module.exports.rentalSchema=rentalSchema;
 module.exports.Rental =Rental;

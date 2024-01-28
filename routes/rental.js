@@ -1,8 +1,10 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const {Rental,validateRental} = require('../module/rentals');
 const {Customer} = require('../module/customer');
 const {Movie} = require('../module/movies');
 const routes = express.Router();
+
 
 routes.get('/',async (req,res)=>{
     const rentalDetail = await Rental.find();
@@ -18,6 +20,9 @@ routes.post('/',async (req,res)=>{
 
     const movie = await Movie.findById(req.body.movieId);
     if(!movie) return res.status(400).send('Invalid Movie..');
+
+    if (movie.numberInStock === 0) return res.status(400).send('Movie not in stock.');
+
 
     let rental = new Rental({
         customer:{
@@ -37,15 +42,11 @@ routes.post('/',async (req,res)=>{
         }
     });
     rental = await rental.save();
+
     movie.numberInStock--;
     movie.save();
-
+    
     res.send(rental);
-
-
-
-
-
 
 });
 
