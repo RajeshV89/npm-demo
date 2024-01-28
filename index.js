@@ -7,6 +7,7 @@ const courses = require('./routes/courses');
 const movies = require('./routes/movies');
 const hello = require('./routes/hello');
 const customer = require('./routes/customer');
+const rental = require('./routes/rental');
 const app = express();
 
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
@@ -22,6 +23,7 @@ app.use(helmet());
 app.use('/api/courses',courses);
 app.use('/api/customer',customer);
 app.use('/api/movies',movies);
+app.use('/api/rental',rental);
 app.use('/',hello);
 app.use(morgan('tiny'));
 
